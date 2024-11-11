@@ -1,13 +1,26 @@
+clear()
+x= 0 
+x = get_pos_x()
+y = get_pos_y()
+counter = 0 
+i=0
 while True :
-	if can_harvest():
-		harvest()
-		plant(Entities.Tree)
-		move(North)
-		move(North)
-	else: 
+	x = get_pos_x()
+	y = get_pos_y()
+	if counter == 4 :
 		move(East)
-		if can_harvest() :
+		move(North)
+		counter= 0 
+	if i % 2 == 1 :
+		if can_harvest():
+			harvest()
+			plant(Entities.Bush)
+			move(North)
+			counter = counter+1
+	elif i % 2 == 0:
+		if can_harvest():
 			harvest()
 			plant(Entities.Tree)
 			move(North)
-			move(North)
+			counter = counter+1
+	i = i+1
