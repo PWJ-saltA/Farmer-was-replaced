@@ -1,0 +1,81 @@
+clear()
+x = get_pos_x()
+y = get_pos_y()
+ 
+while True:
+	x = get_pos_x()
+	y = get_pos_y()
+#bush row
+	#moves it over 
+	if x ==0 and y == 3 :
+		if can_harvest() :
+			harvest()
+			plant(Entities.Bush)
+			move(East)
+	#plants and moves up
+	if x == 0 and y!= 3 :
+		if can_harvest() :
+			harvest()
+			plant(Entities.Bush)
+			move(North)
+# grass row 
+	#moves it over
+	if x== 1 and y== 0 :
+		if can_harvest() :
+			harvest()
+			plant(Entities.Grass)
+			move(East)
+	#plants and moves down
+	if x==1 and y!= 0 : 
+		if can_harvest() :
+			harvest()
+			plant(Entities.Grass)
+			move(South)
+# carrot row
+	#plants and moves down
+	if x == 2 and y!=3: 
+		if can_harvest() :
+			harvest()
+			if get_ground_type() == Grounds.Turf:
+				till()
+			trade(Items.Carrot_Seed)
+			plant(Entities.Carrots)
+			move(North)
+	#plants and moves left
+	if x == 2 and y==3: 
+		if can_harvest() :
+			harvest()
+			if get_ground_type() == Grounds.Turf:
+				till()
+				trade(Items.Carrot_Seed)
+				plant(Entities.Carrots)
+				move(East)
+			else:
+				trade(Items.Carrot_Seed)
+				plant(Entities.Carrots)
+				move(East)
+	#carrot row 
+	if x == 3 and y!= 0 :
+		if can_harvest() :
+			harvest()
+			if get_ground_type() == Grounds.Turf:
+				till()
+				trade(Items.Carrot_Seed)
+				plant(Entities.Carrots)
+				move(South)
+			else:
+				trade(Items.Carrot_Seed)
+				plant(Entities.Carrots)
+				move(South)
+	if x == 3 and y==0 :
+		if can_harvest() :
+			harvest()
+			if get_ground_type() == Grounds.Turf:
+				till()
+				trade(Items.Carrot_Seed)
+				plant(Entities.Carrots)
+				move(East)
+			else:
+				trade(Items.Carrot_Seed)
+				plant(Entities.Carrots)
+				move(East)
